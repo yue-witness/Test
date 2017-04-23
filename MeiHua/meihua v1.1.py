@@ -10,7 +10,7 @@ gua_to_ming = {'111': '乾', '011': '兑', '101': '离', '001': '震', '110': '�
 gua_to_xiang = {'111': '天', '011': '泽', '101': '火', '001': '雷', '110': '风', '010': '水', '100': '山', '000': '地'}
 yao_to_tu = {'1': '---', '0': '- -'}
 gua_to_wuxing = {'111': '金', '011': '金', '101': '火', '001': '木', '110': '木', '010': '水', '100': '土', '000': '土'}
-
+1
 # 开头
 print('This is a program simplify the calculation of MeiHuaYiShu ')
 print('Please input two integer numbers, if you input 0 it will produce random numbers')
@@ -47,7 +47,7 @@ hour = localtime[3]
 if (hour+3)/2 == 13:
     shichen = 1
 else:
-    shichen = (hour+3)/2
+    shichen = int((hour+3)/2)
 
 # 确定输入的数的卦与变卦
 up = shu_to_gua[n1 % 8]
@@ -87,7 +87,7 @@ else:
     bian = zhuan(up[0])+up[1: 3]
 
 zhugua = liushisigua(up+down)
-if dongyao <=3:
+if dongyao <=3 & dongyao >0:
     biangua = liushisigua(up+bian)
 else:
     biangua = liushisigua(bian+down)
@@ -104,7 +104,7 @@ yong = bagua(yong)
 print('主    变')
 for i in range(6):
     print(zhugua.tu(i), ' ',biangua.tu(i))
-if dongyao <=3:
+if dongyao <=3 & dongyao >0:
     print('体    用    上互  下    变')
 else:
     print('体    用    上    下互  变')
@@ -112,4 +112,3 @@ for i in range(3):
     print(ti.tu(i), ' ', yong.tu(i), ' ', shanghu.tu(i), ' ', xiahu.tu(i), ' ', bian.tu(i))
 print(ti.ming, '  ', yong.ming, '  ', shanghu.ming, '  ', xiahu.ming, '  ', bian.ming)
 print(ti.wuxing, '  ', yong.wuxing, '  ', shanghu.wuxing, '  ', xiahu.wuxing, '  ', bian.wuxing)
-
